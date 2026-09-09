@@ -118,6 +118,15 @@ export function ChipIcon() {
   )
 }
 
+export function YoutubeIcon() {
+  return (
+    <svg viewBox="0 0 24 24" strokeWidth="1.8" {...stroke}>
+      <rect x="2.2" y="5.4" width="19.6" height="13.2" rx="4" />
+      <path d="m10.2 9.4 5 2.6-5 2.6Z" fill="currentColor" />
+    </svg>
+  )
+}
+
 export function MailIcon() {
   return (
     <svg viewBox="0 0 24 24" strokeWidth="1.9" {...stroke}>

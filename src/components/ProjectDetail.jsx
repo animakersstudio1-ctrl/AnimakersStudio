@@ -1,6 +1,7 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import Blob from "./Blob.jsx";
+import { YoutubeIcon } from "./icons.jsx";
 import Reveal from "./Reveal.jsx";
 import { PROJECTS, findProject } from "../data/projects.js";
 
@@ -41,7 +42,7 @@ export default function ProjectDetail() {
 
   if (!project) return <Navigate to="/projects" replace />;
 
-  const { title, meta, src, alt, year, role, scope, description } = project;
+  const { title, meta, src, alt, year, role, scope, description, link } = project;
 
   return (
     <section className="project">
@@ -78,6 +79,19 @@ export default function ProjectDetail() {
                 {paragraph}
               </Reveal>
             ))}
+
+            {link && (
+              <Reveal>
+                <a
+                  className="project__link"
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <YoutubeIcon />
+                  Watch on YouTube
+                </a>
+              </Reveal>
+            )}
 
             <Reveal className="project__facts">
               <div className="fact">

@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom'
-import Blob from './Blob.jsx'
-import Eyebrow from './Eyebrow.jsx'
-import Reveal from './Reveal.jsx'
-import { PROJECTS } from '../data/projects.js'
+import { Link } from "react-router-dom";
+import Blob from "./Blob.jsx";
+import Eyebrow from "./Eyebrow.jsx";
+import Reveal from "./Reveal.jsx";
+import { PROJECTS } from "../data/projects.js";
 
 export default function Projects() {
   return (
@@ -13,29 +13,27 @@ export default function Projects() {
           <Eyebrow>Selected work</Eyebrow>
           <Reveal as="h2">Projects we brought to life</Reveal>
           <Reveal as="p">
-            Feature animation, series, characters and full-CG production — a look at what we've
-            been building.
+            Feature animation, series, characters and full-CG production — a
+            look at what we've been building.
           </Reveal>
         </div>
 
         <div className="grid">
-          {PROJECTS.map(({ slug, src, alt, title, meta }, i) => (
+          {PROJECTS.map(({ slug, src, alt, title }, i) => (
             <Reveal
               as={Link}
               key={slug}
               to={`/projects/${slug}`}
               className="card"
-              delay={i * 60}
-            >
+              delay={i * 60}>
               <img src={src} alt={alt} />
               <div className="card__meta">
                 <b>{title}</b>
-                <span>{meta}</span>
               </div>
             </Reveal>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
