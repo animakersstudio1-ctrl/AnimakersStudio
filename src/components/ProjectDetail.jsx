@@ -1,9 +1,8 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import Blob from "./Blob.jsx";
-import { YoutubeIcon } from "./icons.jsx";
 import Reveal from "./Reveal.jsx";
-import { PROJECTS, findProject } from "../data/projects.js";
+import { PROJECTS, findProject, youtubeEmbed } from "../data/projects.js";
 
 function Arrow({ direction }) {
   const d = direction === "prev" ? "m14.5 5-7 7 7 7" : "m9.5 5 7 7-7 7";
@@ -44,6 +43,8 @@ export default function ProjectDetail() {
 
   const { title, meta, src, alt, year, role, scope, description, link } = project;
 
+  const embed = youtubeEmbed(link);
+
   return (
     <section className="project">
       <Blob name="projects__blob" />
@@ -80,16 +81,16 @@ export default function ProjectDetail() {
               </Reveal>
             ))}
 
-            {link && (
-              <Reveal>
-                <a
-                  className="project__link"
-                  href={link}
-                  target="_blank"
-                  rel="noopener noreferrer">
-                  <YoutubeIcon />
-                  Watch on YouTube
-                </a>
+            {embed && (
+              <Reveal className="project__video">
+                <iframe
+                  src={embed}
+                  title={`${title} — trailer`}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
               </Reveal>
             )}
 
