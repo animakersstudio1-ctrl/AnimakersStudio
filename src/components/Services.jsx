@@ -1,7 +1,9 @@
-import Blob from './Blob.jsx'
-import Eyebrow from './Eyebrow.jsx'
-import Reveal from './Reveal.jsx'
-import { SERVICES } from '../data/services.js'
+import { Link } from "react-router-dom";
+import Blob from "./Blob.jsx";
+import Eyebrow from "./Eyebrow.jsx";
+import Reveal from "./Reveal.jsx";
+import { SERVICES } from "../data/services.js";
+import { CONTACT } from "../data/site.js";
 
 export default function Services() {
   return (
@@ -12,9 +14,7 @@ export default function Services() {
         <div className="sec-head center">
           <Eyebrow>What we do</Eyebrow>
           <Reveal as="h2">Services</Reveal>
-          <Reveal as="p">
-            From a first sketch to the final render — we can take on one stage or the whole pipeline.
-          </Reveal>
+          <Reveal as="p">Let’s create something great together.</Reveal>
         </div>
 
         <div className="svc">
@@ -28,7 +28,14 @@ export default function Services() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal as="p" className="svc__outro">
+          We are always open to new projects and collaboration opportunities. If
+          you are interested and would like to discuss details, just email us at{" "}
+          <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> or use the{" "}
+          <Link to="/contact">Contact page</Link>.
+        </Reveal>
       </div>
     </section>
-  )
+  );
 }

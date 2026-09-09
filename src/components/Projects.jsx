@@ -19,12 +19,12 @@ export default function Projects() {
         </div>
 
         <div className="grid">
-          {PROJECTS.map(({ slug, src, alt, title, meta, wide }, i) => (
+          {PROJECTS.map(({ slug, src, alt, title, meta }, i) => (
             <Reveal
               as={Link}
               key={slug}
               to={`/projects/${slug}`}
-              className={wide ? 'card card--wide' : 'card'}
+              className="card"
               delay={i * 60}
             >
               <img src={src} alt={alt} />

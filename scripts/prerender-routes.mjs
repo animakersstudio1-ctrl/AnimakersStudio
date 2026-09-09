@@ -4,7 +4,12 @@ import { join } from 'node:path'
 const dist = 'dist'
 const index = join(dist, 'index.html')
 
-const slugs = [...readFileSync('src/data/projects.js', 'utf8').matchAll(/slug: '([^']+)'/g)]
+const source = readFileSync('src/data/projects.js', 'utf8')
+  .split('\n')
+  .filter(line => !line.trim().startsWith('//'))
+  .join('\n')
+
+const slugs = [...source.matchAll(/slug:\s*['"]([^'"]+)['"]/g)]
   .map(match => `projects/${match[1]}`)
 
 const routes = ['about', 'projects', 'services', 'contact', ...slugs]

@@ -64,6 +64,60 @@ export function RocketIcon() {
   )
 }
 
+export function SparkIcon() {
+  return (
+    <svg viewBox="0 0 24 24" strokeWidth="1.8" {...stroke}>
+      <path d="M11.6 3.2 13.2 7.6 17.6 9.2 13.2 10.8 11.6 15.2 10 10.8 5.6 9.2 10 7.6Z" />
+      <path d="M18.2 15 19 17l2 .8-2 .8-.8 2-.8-2-2-.8 2-.8Z" />
+      <path d="M6 16.2l.6 1.5 1.5.6-1.5.6-.6 1.5-.6-1.5-1.5-.6 1.5-.6Z" />
+    </svg>
+  )
+}
+
+export function TargetIcon() {
+  return (
+    <svg viewBox="0 0 24 24" strokeWidth="1.8" {...stroke}>
+      <circle cx="12" cy="12" r="7.4" />
+      <circle cx="12" cy="12" r="2.6" />
+      <path d="M12 2v3M12 19v3M2 12h3M19 12h3" />
+    </svg>
+  )
+}
+
+export function MocapIcon() {
+  return (
+    <svg viewBox="0 0 24 24" strokeWidth="1.8" {...stroke}>
+      <circle cx="12" cy="4.4" r="2.2" />
+      <path d="M12 6.8v6M12 12.8 8.6 17.6M12 12.8l3.4 4.8M7.6 9.6 12 8.4l4.4 1.2" />
+      <circle cx="7.6" cy="9.6" r="1.15" fill="currentColor" stroke="none" />
+      <circle cx="16.4" cy="9.6" r="1.15" fill="currentColor" stroke="none" />
+      <circle cx="8.6" cy="17.6" r="1.15" fill="currentColor" stroke="none" />
+      <circle cx="15.4" cy="17.6" r="1.15" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}
+
+export function SlidersIcon() {
+  return (
+    <svg viewBox="0 0 24 24" strokeWidth="1.8" {...stroke}>
+      <path d="M5 3.4v6.2M5 14.4v6.2M12 3.4v3.2M12 11.4v9.2M19 3.4v9.2M19 17.4v3.2" />
+      <circle cx="5" cy="12" r="2.4" />
+      <circle cx="12" cy="9" r="2.4" />
+      <circle cx="19" cy="15" r="2.4" />
+    </svg>
+  )
+}
+
+export function ChipIcon() {
+  return (
+    <svg viewBox="0 0 24 24" strokeWidth="1.8" {...stroke}>
+      <rect x="7.2" y="7.2" width="9.6" height="9.6" rx="2.4" />
+      <circle cx="12" cy="12" r="1.7" />
+      <path d="M10.4 3.6v3.6M13.6 3.6v3.6M10.4 16.8v3.6M13.6 16.8v3.6M3.6 10.4h3.6M3.6 13.6h3.6M16.8 10.4h3.6M16.8 13.6h3.6" />
+    </svg>
+  )
+}
+
 export function MailIcon() {
   return (
     <svg viewBox="0 0 24 24" strokeWidth="1.9" {...stroke}>

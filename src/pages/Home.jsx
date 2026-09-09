@@ -1,5 +1,5 @@
-import About from '../components/About.jsx'
+import Intro from "../components/Intro.jsx";
 
 export default function Home() {
-  return <About />
+  return <Intro />;
 }

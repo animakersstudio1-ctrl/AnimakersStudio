@@ -1,48 +1,62 @@
-import { Link, Navigate, useParams } from 'react-router-dom'
-import { useEffect } from 'react'
-import Blob from './Blob.jsx'
-import Reveal from './Reveal.jsx'
-import { PROJECTS, findProject } from '../data/projects.js'
+import { Link, Navigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
+import Blob from "./Blob.jsx";
+import Reveal from "./Reveal.jsx";
+import { PROJECTS, findProject } from "../data/projects.js";
 
 function Arrow({ direction }) {
-  const d = direction === 'prev' ? 'm14.5 5-7 7 7 7' : 'm9.5 5 7 7-7 7'
+  const d = direction === "prev" ? "m14.5 5-7 7 7 7" : "m9.5 5 7 7-7 7";
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.1"
+      strokeLinecap="round"
+      strokeLinejoin="round">
       <path d={d} />
     </svg>
-  )
+  );
 }
 
 export default function ProjectDetail() {
-  const { slug } = useParams()
-  const index = findProject(slug)
-  const project = PROJECTS[index]
+  const { slug } = useParams();
+  const index = findProject(slug);
+  const project = PROJECTS[index];
 
-  const prev = index > 0 ? PROJECTS[index - 1] : PROJECTS[PROJECTS.length - 1]
-  const next = index < PROJECTS.length - 1 ? PROJECTS[index + 1] : PROJECTS[0]
+  const prev = index > 0 ? PROJECTS[index - 1] : PROJECTS[PROJECTS.length - 1];
+  const next = index < PROJECTS.length - 1 ? PROJECTS[index + 1] : PROJECTS[0];
 
   useEffect(() => {
-    if (!project) return
-    const onKey = e => {
-      if (e.key === 'ArrowLeft') document.querySelector('.pager__btn--prev')?.click()
-      if (e.key === 'ArrowRight') document.querySelector('.pager__btn--next')?.click()
-    }
-    document.addEventListener('keydown', onKey)
-    return () => document.removeEventListener('keydown', onKey)
-  }, [project])
+    if (!project) return;
+    const onKey = (e) => {
+      if (e.key === "ArrowLeft")
+        document.querySelector(".pager__btn--prev")?.click();
+      if (e.key === "ArrowRight")
+        document.querySelector(".pager__btn--next")?.click();
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [project]);
 
-  if (!project) return <Navigate to="/projects" replace />
+  if (!project) return <Navigate to="/projects" replace />;
 
-  const { title, meta, src, alt, year, role, scope, description } = project
+  const { title, meta, src, alt, year, role, scope, description } = project;
 
   return (
     <section className="project">
       <Blob name="projects__blob" />
 
-      <Link to={`/projects/${prev.slug}`} className="pager__btn pager__btn--prev" aria-label={`Previous project: ${prev.title}`}>
+      <Link
+        to={`/projects/${prev.slug}`}
+        className="pager__btn pager__btn--prev"
+        aria-label={`Previous project: ${prev.title}`}>
         <Arrow direction="prev" />
       </Link>
-      <Link to={`/projects/${next.slug}`} className="pager__btn pager__btn--next" aria-label={`Next project: ${next.title}`}>
+      <Link
+        to={`/projects/${next.slug}`}
+        className="pager__btn pager__btn--next"
+        aria-label={`Next project: ${next.title}`}>
         <Arrow direction="next" />
       </Link>
 
@@ -51,11 +65,7 @@ export default function ProjectDetail() {
           <Arrow direction="prev" />
           All projects
         </Reveal>
-
-        <div className="sec-head">
-          <Reveal as="span" className="eyebrow"><i />{meta}</Reveal>
-          <Reveal as="h2">{title}</Reveal>
-        </div>
+        <Reveal as="h2">{title}</Reveal>
 
         <div className="project__layout">
           <Reveal className="project__media">
@@ -63,14 +73,21 @@ export default function ProjectDetail() {
           </Reveal>
 
           <div className="project__text">
-            {description.map(paragraph => (
-              <Reveal as="p" key={paragraph.slice(0, 24)}>{paragraph}</Reveal>
+            {description.map((paragraph) => (
+              <Reveal as="p" key={paragraph.slice(0, 24)}>
+                {paragraph}
+              </Reveal>
             ))}
 
             <Reveal className="project__facts">
-              <div className="fact"><b>Year</b><span>{year}</span></div>
-              <div className="fact"><b>Our role</b><span>{role}</span></div>
-              <div className="fact"><b>Scope</b><span>{scope}</span></div>
+              <div className="fact">
+                <b>Year</b>
+                <span>{year}</span>
+              </div>
+              <div className="fact">
+                <b>Our role</b>
+                <span>{role}</span>
+              </div>
             </Reveal>
           </div>
         </div>
@@ -78,14 +95,22 @@ export default function ProjectDetail() {
         <Reveal className="pager">
           <Link to={`/projects/${prev.slug}`} className="pager__link">
             <Arrow direction="prev" />
-            <span><b>Previous</b>{prev.title}</span>
+            <span>
+              <b>Previous</b>
+              {prev.title}
+            </span>
           </Link>
-          <Link to={`/projects/${next.slug}`} className="pager__link pager__link--next">
-            <span><b>Next</b>{next.title}</span>
+          <Link
+            to={`/projects/${next.slug}`}
+            className="pager__link pager__link--next">
+            <span>
+              <b>Next</b>
+              {next.title}
+            </span>
             <Arrow direction="next" />
           </Link>
         </Reveal>
       </div>
     </section>
-  )
+  );
 }

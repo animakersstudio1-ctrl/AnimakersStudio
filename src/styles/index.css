@@ -25,9 +25,7 @@ body{
   font-size:17px;line-height:1.65;
   overflow-x:clip;
 }
-#root{display:flex;flex-direction:column;min-height:100vh;overflow:clip}
-#root > main{flex:0 0 auto}
-#root > footer{flex:1 0 auto}
+#root{overflow:clip}
 .page{padding-top:var(--hh)}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:2}
 a{color:inherit;text-decoration:none}
@@ -147,6 +145,16 @@ section{position:relative;padding:100px 0}
 h2{font-size:clamp(32px,4.4vw,52px);line-height:1.1;font-weight:800;letter-spacing:-.025em;margin-bottom:18px}
 .sec-head p{font-size:18px;color:var(--navy-soft)}
 
+/* ---------- intro ---------- */
+.intro__text{max-width:760px;margin:0 auto;text-align:center}
+.intro__text p{margin-bottom:22px;font-size:18px;color:var(--navy-soft)}
+.intro__text p:last-child{margin-bottom:0}
+.intro__closing{
+  margin-top:34px;font-weight:700;font-size:19px;
+  background:linear-gradient(100deg,var(--cyan),var(--violet));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+
 /* ---------- about ---------- */
 .about__blob{left:min(-140px,-20vw);bottom:-170px;width:clamp(230px,37vw,580px);opacity:.55;animation-delay:-11s;animation-duration:26s}
 .about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:70px;align-items:center}
@@ -180,7 +188,6 @@ h2{font-size:clamp(32px,4.4vw,52px);line-height:1.1;font-weight:800;letter-spaci
 .card:hover{transform:translateY(-7px);box-shadow:0 30px 56px -26px rgba(42,50,105,.6)}
 .card img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.3,1)}
 .card:hover img{transform:scale(1.08)}
-.card--wide{grid-column:span 2;aspect-ratio:3/2}
 .card__meta{
   position:absolute;inset:auto 0 0 0;padding:44px 20px 18px;
   background:linear-gradient(transparent,rgba(20,16,50,.86));
@@ -207,20 +214,24 @@ h2{font-size:clamp(32px,4.4vw,52px);line-height:1.1;font-weight:800;letter-spaci
   margin-bottom:22px;
 }
 .svc__ico svg{width:27px;height:27px}
-.svc__item:nth-child(1) .svc__ico{color:var(--violet)}
-.svc__item:nth-child(2) .svc__ico{color:#3E7FD1}
-.svc__item:nth-child(3) .svc__ico{color:#C08A16}
-.svc__item:nth-child(4) .svc__ico{color:var(--cyan)}
-.svc__item:nth-child(5) .svc__ico{color:var(--violet)}
-.svc__item:nth-child(6) .svc__ico{color:#3E7FD1}
-.svc__item:nth-child(1) .svc__ico{background:rgba(164,124,243,.16)}
-.svc__item:nth-child(2) .svc__ico{background:rgba(140,184,245,.2)}
-.svc__item:nth-child(3) .svc__ico{background:rgba(247,197,92,.24)}
-.svc__item:nth-child(4) .svc__ico{background:rgba(47,181,204,.16)}
-.svc__item:nth-child(5) .svc__ico{background:rgba(155,77,224,.14)}
-.svc__item:nth-child(6) .svc__ico{background:rgba(140,184,245,.2)}
+.svc__item:nth-child(6n+1) .svc__ico{color:var(--violet);background:rgba(164,124,243,.16)}
+.svc__item:nth-child(6n+2) .svc__ico{color:#3E7FD1;background:rgba(140,184,245,.2)}
+.svc__item:nth-child(6n+3) .svc__ico{color:#C08A16;background:rgba(247,197,92,.24)}
+.svc__item:nth-child(6n+4) .svc__ico{color:var(--cyan);background:rgba(47,181,204,.16)}
+.svc__item:nth-child(6n+5) .svc__ico{color:var(--violet);background:rgba(155,77,224,.14)}
+.svc__item:nth-child(6n) .svc__ico{color:#3E7FD1;background:rgba(140,184,245,.2)}
 .svc__item h3{font-size:20px;font-weight:800;letter-spacing:-.01em;margin-bottom:10px}
 .svc__item p{font-size:15.5px;color:var(--navy-soft);line-height:1.6}
+.svc__outro{
+  max-width:720px;margin:56px auto 0;text-align:center;
+  font-size:17px;color:var(--navy-soft);
+}
+.svc__outro a{
+  color:var(--violet);font-weight:700;
+  border-bottom:1.5px solid rgba(155,77,224,.3);
+  transition:border-color .22s,color .22s;
+}
+.svc__outro a:hover{color:var(--cyan);border-bottom-color:var(--cyan)}
 
 /* ---------- contact ---------- */
 #about{z-index:1}
@@ -342,7 +353,6 @@ footer{padding:52px 0;background:var(--cream);border-top:1px solid rgba(42,50,10
   .about{grid-template-columns:minmax(0,1fr);gap:44px}
   .about__grid{justify-self:start}
   .grid{grid-template-columns:repeat(2,1fr)}
-  .card--wide{grid-column:span 2}
   .svc{grid-template-columns:repeat(2,1fr)}
   .contact__box{grid-template-columns:1fr}
   .project__layout{grid-template-columns:1fr;gap:34px}
@@ -371,7 +381,6 @@ footer{padding:52px 0;background:var(--cream);border-top:1px solid rgba(42,50,10
   .nav{padding:11px 20px}
   .nav__logo img{height:54px;width:auto}
   .grid,.svc{grid-template-columns:1fr}
-  .card--wide{grid-column:span 1}
   .row{grid-template-columns:1fr}
   .contact__aside,form{padding:34px 26px}
   .pager__btn{display:none}
