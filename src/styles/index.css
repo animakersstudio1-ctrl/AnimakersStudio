@@ -27,6 +27,7 @@ body{
 }
 #root{overflow:clip}
 .page{padding-top:var(--hh)}
+.scroll-sentinel{position:absolute;top:0;left:0;width:1px;height:var(--hh);pointer-events:none}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:2}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
