@@ -127,7 +127,14 @@ header.is-transparent .burger:hover{background:rgba(255,255,255,.14)}
   content:'';position:absolute;inset:0;pointer-events:none;
   box-shadow:inset 0 0 90px 30px rgba(245,242,236,.14);
 }
-.hero__reel video{width:100%;height:100%;object-fit:cover;display:block}
+.hero__reel video{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
+  transform:translateX(100%);
+}
+.hero__reel video.is-active,
+.hero__reel video.is-leaving{transition:transform .8s cubic-bezier(.7,0,.2,1)}
+.hero__reel video.is-active{transform:translateX(0)}
+.hero__reel video.is-leaving{transform:translateX(-100%)}
 .reel__badge{
   position:absolute;left:clamp(20px,4vw,56px);bottom:clamp(20px,3.5vw,40px);z-index:3;
   display:flex;align-items:center;gap:9px;
