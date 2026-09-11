@@ -1,13 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import asset from "../data/asset.js";
 
-const REEL = [
-  asset("/assets/video/hero-1.mp4"),
-  asset("/assets/video/hero-2.mp4"),
-  asset("/assets/video/hero-3.mp4"),
-];
+const REEL = Array.from({ length: 15 }, (_, i) =>
+  asset(`/assets/video/reel-${String(i + 1).padStart(2, "0")}.mp4`),
+);
 
-const POSTER = asset("/assets/video/hero-poster.jpg");
+const POSTER = asset("/assets/video/reel-poster.jpg");
 
 export default function Hero() {
   const first = useRef(null);
