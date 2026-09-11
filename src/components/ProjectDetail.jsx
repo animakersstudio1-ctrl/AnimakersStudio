@@ -81,6 +81,17 @@ export default function ProjectDetail() {
               </Reveal>
             ))}
 
+            <Reveal className="project__facts">
+              <div className="fact">
+                <b>Year</b>
+                <span>{year}</span>
+              </div>
+              <div className="fact">
+                <b>Our role</b>
+                <span>{role}</span>
+              </div>
+            </Reveal>
+
             {embed && (
               <Reveal className="project__video">
                 <iframe
@@ -93,17 +104,6 @@ export default function ProjectDetail() {
                 />
               </Reveal>
             )}
-
-            <Reveal className="project__facts">
-              <div className="fact">
-                <b>Year</b>
-                <span>{year}</span>
-              </div>
-              <div className="fact">
-                <b>Our role</b>
-                <span>{role}</span>
-              </div>
-            </Reveal>
           </div>
         </div>
 

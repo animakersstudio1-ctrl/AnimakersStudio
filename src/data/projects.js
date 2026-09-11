@@ -9,6 +9,7 @@ export const PROJECTS = [
     year: "2025 — 2026",
     role: "Environment Modeling, Texturing, Layout, 3D Animation, FX / Dynamics",
     scope: "Sequence delivery",
+    link: "https://www.youtube.com/watch?v=bRCx5-BtmnQ",
     description: [
       'Luntik: The Far Side of the Moon is an animated adventure based on the series "Luntik and His Friends." ' +
         "Luntik lives happily with his mother on the Moon and regularly visits his friends on Earth. " +
