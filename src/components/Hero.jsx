@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import asset from "../data/asset.js";
 
-const REEL = Array.from({ length: 15 }, (_, i) =>
+const REEL = Array.from({ length: 18 }, (_, i) =>
   asset(`/assets/video/reel-${String(i + 1).padStart(2, "0")}.mp4`),
 );
 
